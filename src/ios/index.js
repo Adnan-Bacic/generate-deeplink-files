@@ -1,0 +1,76 @@
+const fs = require('fs');
+
+//file
+const outputFolder = 'src/ios'
+const fileName = 'apple-app-site-association'
+
+//ios app bundle id
+const baseBundleID = 'com.example.appName'
+
+//prefix
+const prefix1 = 'prefix1'
+const prefix2 = 'prefix2'
+
+//example paths
+const pathsData = [
+    'path1', 'path2', 'path3'
+]
+
+//test data
+const appData = [
+    {
+        appIdPrefix: prefix1,
+        bundleID: baseBundleID,
+        extension: null,
+        paths: pathsData,
+    },
+    {
+        appIdPrefix: prefix2,
+        bundleID: baseBundleID,
+        extension: 'alpha',
+        paths: pathsData
+    },
+    {
+        appIdPrefix: prefix2,
+        bundleID: baseBundleID,
+        extension: 'beta',
+        paths: pathsData
+    },
+    {
+        appIdPrefix: prefix2,
+        bundleID: baseBundleID,
+        extension: 'gamma',
+        paths: pathsData
+    },
+]
+
+//setup data correctly
+const detailsContent = appData.map((item) => {
+    console.log(item)
+
+    let baseAppID = `${item.appIdPrefix}.${item.bundleID}`
+
+    //prod app doesnt have an extension
+    if(item.extension !== null){
+        //add extension to non-prod versions
+        baseAppID = `${baseAppID}.${item.extension}`
+    }
+
+    const result = {
+        appID: baseAppID,
+        paths: item.paths
+    }
+
+    return result
+})
+
+const content = {
+    appLinks: {
+        apps: [],
+        details: detailsContent
+    }
+}
+ 
+const data = JSON.stringify(content, null, 2);
+
+fs.writeFileSync(`${outputFolder}/${fileName}`, data);

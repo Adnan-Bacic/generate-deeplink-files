@@ -1,0 +1,11 @@
+{
+  "name": "generate-deeplink-files",
+  "version": "1.0.0",
+  "repository": "https://github.com/Adnan-Bacic/generate-deeplink-files.git",
+  "author": "Adnan Bacic <adnan-bacic@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "generateIOS": "node src/ios/index.js",
+    "generateAndroid": "node src/android/index.js"
+  }
+}

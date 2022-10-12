@@ -1,0 +1,39 @@
+{
+  "appLinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "prefix1.com.example.appName",
+        "paths": [
+          "path1",
+          "path2",
+          "path3"
+        ]
+      },
+      {
+        "appID": "prefix2.com.example.appName.alpha",
+        "paths": [
+          "path1",
+          "path2",
+          "path3"
+        ]
+      },
+      {
+        "appID": "prefix2.com.example.appName.beta",
+        "paths": [
+          "path1",
+          "path2",
+          "path3"
+        ]
+      },
+      {
+        "appID": "prefix2.com.example.appName.gamma",
+        "paths": [
+          "path1",
+          "path2",
+          "path3"
+        ]
+      }
+    ]
+  }
+}
