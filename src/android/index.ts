@@ -1,36 +1,36 @@
 const fs = require('fs');
 
-//file
-const outputFolderAndroid = 'src/android'
-const fileNameAndroid = 'assetlinks.json'
+// file
+const outputFolderAndroid = 'src/android';
+const fileNameAndroid = 'assetlinks.json';
 
-//android app package name
-const packageName = 'com.example.appName'
+// android app package name
+const packageName = 'com.example.appName';
 
-//test dataAndroid
+// test dataAndroid
 const appDataAndroid = [
-    {
-        relation: [
-            'delegate_permission/common.handle_all_urls'
-        ],
-        target: {
-            namespace: 'android_app',
-            package_name: packageName,
-            sha256_cert_fingerprints: [
-                'string1', 'string2'
-            ]
-        },
+  {
+    relation: [
+      'delegate_permission/common.handle_all_urls',
+    ],
+    target: {
+      namespace: 'android_app',
+      package_name: packageName,
+      sha256_cert_fingerprints: [
+        'string1', 'string2',
+      ],
     },
-    {
-        relation: [
-            'delegate_permission/common.get_login_creds'
-        ],
-        target: {
-            namespace: 'web',
-            site: 'http://example.com/'
-        },
+  },
+  {
+    relation: [
+      'delegate_permission/common.get_login_creds',
+    ],
+    target: {
+      namespace: 'web',
+      site: 'http://example.com/',
     },
-]
+  },
+];
 
 const dataAndroid = JSON.stringify(appDataAndroid, null, 2);
 

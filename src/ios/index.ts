@@ -1,76 +1,76 @@
 const fs = require('fs');
 
-//file
-const outputFolderIos = 'src/ios'
-const fileNameIos = 'apple-app-site-association'
+// file
+const outputFolderIos = 'src/ios';
+const fileNameIos = 'apple-app-site-association';
 
-//ios app bundle id
-const baseBundleID = 'com.example.appName'
+// ios app bundle id
+const baseBundleID = 'com.example.appName';
 
-//prefix
-const prefix1 = 'prefix1'
-const prefix2 = 'prefix2'
+// prefix
+const prefix1 = 'prefix1';
+const prefix2 = 'prefix2';
 
-//example paths
+// example paths
 const pathsData = [
-    'path1', 'path2', 'path3'
-]
+  'path1', 'path2', 'path3',
+];
 
-//test dataIos
+// test dataIos
 const appDataIos = [
-    {
-        appIdPrefix: prefix1,
-        bundleID: baseBundleID,
-        extension: null,
-        paths: pathsData,
-    },
-    {
-        appIdPrefix: prefix2,
-        bundleID: baseBundleID,
-        extension: 'alpha',
-        paths: pathsData
-    },
-    {
-        appIdPrefix: prefix2,
-        bundleID: baseBundleID,
-        extension: 'beta',
-        paths: pathsData
-    },
-    {
-        appIdPrefix: prefix2,
-        bundleID: baseBundleID,
-        extension: 'gamma',
-        paths: pathsData
-    },
-]
+  {
+    appIdPrefix: prefix1,
+    bundleID: baseBundleID,
+    extension: null,
+    paths: pathsData,
+  },
+  {
+    appIdPrefix: prefix2,
+    bundleID: baseBundleID,
+    extension: 'alpha',
+    paths: pathsData,
+  },
+  {
+    appIdPrefix: prefix2,
+    bundleID: baseBundleID,
+    extension: 'beta',
+    paths: pathsData,
+  },
+  {
+    appIdPrefix: prefix2,
+    bundleID: baseBundleID,
+    extension: 'gamma',
+    paths: pathsData,
+  },
+];
 
-//setup dataIos correctly
+// setup dataIos correctly
 const detailsContent = appDataIos.map((item) => {
-    console.log(item)
+  console.log(item);
 
-    let baseAppID = `${item.appIdPrefix}.${item.bundleID}`
+  let baseAppID = `${item.appIdPrefix}.${item.bundleID}`;
 
-    //prod app doesnt have an extension
-    if(item.extension !== null){
-        //add extension to non-prod versions
-        baseAppID = `${baseAppID}.${item.extension}`
-    }
+  // prod app doesnt have an extension
+  if (item.extension !== null) {
+    // add extension to non-prod versions
+    baseAppID = `${baseAppID}.${item.extension}`;
+  }
 
-    const result = {
-        appID: baseAppID,
-        paths: item.paths
-    }
+  const result = {
+    appID: baseAppID,
+    paths: item.paths,
+  };
 
-    return result
-})
+  return result;
+});
 
 const content = {
-    appLinks: {
-        apps: [],
-        details: detailsContent
-    }
-}
- 
+  appLinks: {
+    apps: [],
+    details: detailsContent,
+  },
+};
+
 const dataIos = JSON.stringify(content, null, 2);
 
 fs.writeFileSync(`${outputFolderIos}/${fileNameIos}`, dataIos);

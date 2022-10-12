@@ -8,7 +8,7 @@
     "generateIOS": "node src/ios/index.js",
     "generateAndroid": "node src/android/index.js",
     "generateAll": "yarn generateIOS && yarn generateAndroid",
-    "lint": "eslint src .eslintrc.js --ext .ts,",
+    "lint": "eslint src .eslintrc.js --ext .ts --fix",
     "tsc": "tsc -w"
   },
   "devDependencies": {
