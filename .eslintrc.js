@@ -20,5 +20,7 @@ module.exports = {
   plugins: [
   ],
   rules: {
+    // allow require syntax
+    '@typescript-eslint/no-var-requires': [0, 'always'],
   },
 };
