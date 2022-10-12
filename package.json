@@ -6,6 +6,10 @@
   "license": "MIT",
   "scripts": {
     "generateIOS": "node src/ios/index.js",
-    "generateAndroid": "node src/android/index.js"
+    "generateAndroid": "node src/android/index.js",
+    "tsc": "tsc -w"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
   }
 }

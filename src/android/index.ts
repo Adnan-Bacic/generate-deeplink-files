@@ -1,10 +1,12 @@
-"use strict";
 const fs = require('fs');
+
 //file
-const outputFolder = 'src/android';
-const fileName = 'assetlinks.json';
+const outputFolder = 'src/android'
+const fileName = 'assetlinks.json'
+
 //android app package name
-const packageName = 'com.example.appName';
+const packageName = 'com.example.appName'
+
 //test data
 const appData = [
     {
@@ -28,6 +30,8 @@ const appData = [
             site: 'http://example.com/'
         },
     },
-];
+]
+
 const data = JSON.stringify(appData, null, 2);
+
 fs.writeFileSync(`${outputFolder}/${fileName}`, data);
