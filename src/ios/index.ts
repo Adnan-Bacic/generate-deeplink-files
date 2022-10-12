@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 //file
-const outputFolder = 'src/ios'
-const fileName = 'apple-app-site-association'
+const outputFolderIos = 'src/ios'
+const fileNameIos = 'apple-app-site-association'
 
 //ios app bundle id
 const baseBundleID = 'com.example.appName'
@@ -16,8 +16,8 @@ const pathsData = [
     'path1', 'path2', 'path3'
 ]
 
-//test data
-const appData = [
+//test dataIos
+const appDataIos = [
     {
         appIdPrefix: prefix1,
         bundleID: baseBundleID,
@@ -44,8 +44,8 @@ const appData = [
     },
 ]
 
-//setup data correctly
-const detailsContent = appData.map((item) => {
+//setup dataIos correctly
+const detailsContent = appDataIos.map((item) => {
     console.log(item)
 
     let baseAppID = `${item.appIdPrefix}.${item.bundleID}`
@@ -71,6 +71,6 @@ const content = {
     }
 }
  
-const data = JSON.stringify(content, null, 2);
+const dataIos = JSON.stringify(content, null, 2);
 
-fs.writeFileSync(`${outputFolder}/${fileName}`, data);
+fs.writeFileSync(`${outputFolderIos}/${fileNameIos}`, dataIos);

@@ -1,14 +1,14 @@
 const fs = require('fs');
 
 //file
-const outputFolder = 'src/android'
-const fileName = 'assetlinks.json'
+const outputFolderAndroid = 'src/android'
+const fileNameAndroid = 'assetlinks.json'
 
 //android app package name
 const packageName = 'com.example.appName'
 
-//test data
-const appData = [
+//test dataAndroid
+const appDataAndroid = [
     {
         relation: [
             'delegate_permission/common.handle_all_urls'
@@ -32,6 +32,6 @@ const appData = [
     },
 ]
 
-const data = JSON.stringify(appData, null, 2);
+const dataAndroid = JSON.stringify(appDataAndroid, null, 2);
 
-fs.writeFileSync(`${outputFolder}/${fileName}`, data);
+fs.writeFileSync(`${outputFolderAndroid}/${fileNameAndroid}`, dataAndroid);
