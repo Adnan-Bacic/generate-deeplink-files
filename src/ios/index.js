@@ -41,7 +41,6 @@ const appDataIos = [
 ];
 // setup dataIos correctly
 const detailsContent = appDataIos.map((item) => {
-    console.log(item);
     let baseAppID = `${item.appIdPrefix}.${item.bundleID}`;
     // prod app doesnt have an extension
     if (item.extension !== null) {
