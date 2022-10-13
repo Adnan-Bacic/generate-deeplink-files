@@ -1,5 +1,9 @@
 "use strict";
-const fs = require('fs');
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs_1 = __importDefault(require("fs"));
 // file
 const outputFolderIos = 'src/ios';
 const fileNameIos = 'apple-app-site-association';
@@ -60,4 +64,4 @@ const content = {
     },
 };
 const dataIos = JSON.stringify(content, null, 2);
-fs.writeFileSync(`${outputFolderIos}/${fileNameIos}`, dataIos);
+fs_1.default.writeFileSync(`${outputFolderIos}/${fileNameIos}`, dataIos);

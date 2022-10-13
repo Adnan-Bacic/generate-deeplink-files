@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 // file
 const outputFolderAndroid = 'src/android';
