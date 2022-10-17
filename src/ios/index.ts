@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 // file
-const outputFolderIos = 'src/ios';
+const outputFolderIos = 'files';
 const fileNameIos = 'apple-app-site-association';
 
 // ios app bundle id
@@ -13,7 +13,7 @@ const prefix2 = 'prefix2';
 
 // example paths
 const pathsData = [
-  'path1', 'path2', 'path3',
+  'path1', 'path2', 'path3', 'path4',
 ];
 
 // test dataIos

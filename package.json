@@ -5,8 +5,8 @@
   "author": "Adnan Bacic <adnan-bacic@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "generateIOS": "node src/ios/index.js",
-    "generateAndroid": "node src/android/index.js",
+    "generateIOS": "node build/ios/index.js",
+    "generateAndroid": "node build/android/index.js",
     "generateAll": "yarn generateIOS && yarn generateAndroid",
     "lint": "eslint src .eslintrc.js --ext .ts --fix",
     "tsc": "tsc -w"

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 // file
-const outputFolderAndroid = 'src/android';
+const outputFolderAndroid = 'files';
 const fileNameAndroid = 'assetlinks.json';
 // android app package name
 const packageName = 'com.example.appName';

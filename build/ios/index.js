@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 // file
-const outputFolderIos = 'src/ios';
+const outputFolderIos = 'files';
 const fileNameIos = 'apple-app-site-association';
 // ios app bundle id
 const baseBundleID = 'com.example.appName';
@@ -14,7 +14,7 @@ const prefix1 = 'prefix1';
 const prefix2 = 'prefix2';
 // example paths
 const pathsData = [
-    'path1', 'path2', 'path3',
+    'path1', 'path2', 'path3', 'path4',
 ];
 // test dataIos
 const appDataIos = [

@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 // file
-const outputFolderAndroid = 'src/android';
+const outputFolderAndroid = 'files';
 const fileNameAndroid = 'assetlinks.json';
 
 // android app package name
