@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
+const files_1 = require("../constants/files");
 // file
-const outputFolderIos = 'files';
 const fileNameIos = 'apple-app-site-association';
 // ios app bundle id
 const baseBundleID = 'com.example.appName';
@@ -64,4 +64,4 @@ const content = {
     },
 };
 const dataIos = JSON.stringify(content, null, 2);
-fs_1.default.writeFileSync(`${outputFolderIos}/${fileNameIos}`, dataIos);
+fs_1.default.writeFileSync(`${files_1.outputFolder}/${fileNameIos}`, dataIos);

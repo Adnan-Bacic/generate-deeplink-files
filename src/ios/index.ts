@@ -1,7 +1,7 @@
 import fs from 'fs';
+import { outputFolder } from '../constants/files';
 
 // file
-const outputFolderIos = 'files';
 const fileNameIos = 'apple-app-site-association';
 
 // ios app bundle id
@@ -71,4 +71,4 @@ const content = {
 
 const dataIos = JSON.stringify(content, null, 2);
 
-fs.writeFileSync(`${outputFolderIos}/${fileNameIos}`, dataIos);
+fs.writeFileSync(`${outputFolder}/${fileNameIos}`, dataIos);

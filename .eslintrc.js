@@ -20,13 +20,13 @@ module.exports = {
   plugins: [
   ],
   ignorePatterns: [
-    //ignore build folder
-    'build/'
+    // ignore build folder
+    'build/',
   ],
   rules: {
-        // syntax rules
-        'import/prefer-default-export': [0, 'always'],
-        
+    // syntax rules
+    'import/prefer-default-export': [0, 'always'],
+
     // allow require syntax
     '@typescript-eslint/no-var-requires': [0, 'always'],
   },

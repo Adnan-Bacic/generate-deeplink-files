@@ -1,7 +1,7 @@
 import fs from 'fs';
+import { outputFolder } from '../constants/files';
 
 // file
-const outputFolderAndroid = 'files';
 const fileNameAndroid = 'assetlinks.json';
 
 // android app package name
@@ -34,4 +34,4 @@ const appDataAndroid = [
 
 const dataAndroid = JSON.stringify(appDataAndroid, null, 2);
 
-fs.writeFileSync(`${outputFolderAndroid}/${fileNameAndroid}`, dataAndroid);
+fs.writeFileSync(`${outputFolder}/${fileNameAndroid}`, dataAndroid);
