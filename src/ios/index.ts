@@ -8,8 +8,8 @@ const fileNameIos = 'apple-app-site-association';
 const baseBundleID = 'com.example.appName';
 
 // prefix
-const prefix1 = 'prefix1';
-const prefix2 = 'prefix2';
+const appIdPrefixProd = 'prefix1';
+const appIdPrefixTeamID = 'prefix2';
 
 // example paths
 const pathsData = [
@@ -19,43 +19,43 @@ const pathsData = [
 // test dataIos
 const appDataIos = [
   {
-    appIdPrefix: prefix1,
+    appIdPrefix: appIdPrefixProd,
     bundleID: baseBundleID,
-    extension: null,
+    bundleIDExtension: null,
     paths: pathsData,
   },
   {
-    appIdPrefix: prefix2,
+    appIdPrefix: appIdPrefixTeamID,
     bundleID: baseBundleID,
-    extension: 'alpha',
+    bundleIDExtension: 'alpha',
     paths: pathsData,
   },
   {
-    appIdPrefix: prefix2,
+    appIdPrefix: appIdPrefixTeamID,
     bundleID: baseBundleID,
-    extension: 'beta',
+    bundleIDExtension: 'beta',
     paths: pathsData,
   },
   {
-    appIdPrefix: prefix2,
+    appIdPrefix: appIdPrefixTeamID,
     bundleID: baseBundleID,
-    extension: 'gamma',
+    bundleIDExtension: 'gamma',
     paths: pathsData,
   },
 ];
 
 // setup dataIos correctly
 const detailsContent = appDataIos.map((item) => {
-  let baseAppID = `${item.appIdPrefix}.${item.bundleID}`;
+  let concatenatedAppID = `${item.appIdPrefix}.${item.bundleID}`;
 
-  // prod app doesnt have an extension
-  if (item.extension !== null) {
-    // add extension to non-prod versions
-    baseAppID = `${baseAppID}.${item.extension}`;
+  // prod app doesnt have an bundleIDExtension
+  if (item.bundleIDExtension !== null) {
+    // add bundleIDExtension to non-prod versions
+    concatenatedAppID = `${concatenatedAppID}.${item.bundleIDExtension}`;
   }
 
   const result = {
-    appID: baseAppID,
+    appID: concatenatedAppID,
     paths: item.paths,
   };
 
