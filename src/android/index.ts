@@ -23,6 +23,42 @@ const appDataAndroid = [
   },
   {
     relation: [
+      'delegate_permission/common.handle_all_urls',
+    ],
+    target: {
+      namespace: 'android_app',
+      package_name: `${packageName}.alpha`,
+      sha256_cert_fingerprints: [
+        'string1', 'string2',
+      ],
+    },
+  },
+  {
+    relation: [
+      'delegate_permission/common.handle_all_urls',
+    ],
+    target: {
+      namespace: 'android_app',
+      package_name: `${packageName}.beta`,
+      sha256_cert_fingerprints: [
+        'string1', 'string2',
+      ],
+    },
+  },
+  {
+    relation: [
+      'delegate_permission/common.handle_all_urls',
+    ],
+    target: {
+      namespace: 'android_app',
+      package_name: `${packageName}.gamma`,
+      sha256_cert_fingerprints: [
+        'string1', 'string2',
+      ],
+    },
+  },
+  {
+    relation: [
       'delegate_permission/common.get_login_creds',
     ],
     target: {
