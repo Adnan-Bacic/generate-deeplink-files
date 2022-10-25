@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { outputFolder } from '../constants/files';
-import { AndroidAppLinksConfig, Config, FileNameAndroid } from './types';
+import { AndroidAppLinksConfig, AssetLinksConfig, FileNameAndroid } from './types';
 
 // file
 const fileNameAndroid: FileNameAndroid = 'assetlinks.json';
@@ -62,7 +62,7 @@ const androidAppLinkConfig: AndroidAppLinksConfig[] = [
 ];
 
 // setup config correctly
-const appDataAndroid: Config[] = androidAppLinkConfig.map((item) => {
+const appDataAndroid: AssetLinksConfig[] = androidAppLinkConfig.map((item) => {
   let concatenatedPackageName = `${item.target.package_name}`;
 
   // prod app doesnt have an bundleIdExtension, so its null

@@ -20,7 +20,7 @@ export interface AndroidAppLinksConfig {
   packageNameExtension: AppPackageNameExtension;
 }
 
-export interface Config {
+export interface AssetLinksConfig {
   relation: Relation[];
   target: {
     namespace: Namespace;
