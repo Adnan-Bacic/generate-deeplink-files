@@ -2,13 +2,15 @@ export type FileNameIos = 'apple-app-site-association';
 
 export type AppBundleID = 'com.example.appName';
 
+type BundleIdExtension = 'alpha' | 'beta' | 'gamma' | null;
+
 export type AppIdPrefixProd = 'prefix1';
 export type AppIdPrefixTeamID = 'prefix2';
 
 export interface IosUniversalLinksConfig {
   appIdPrefix: AppIdPrefixProd | AppIdPrefixTeamID;
   bundleID: AppBundleID;
-  bundleIdExtension: 'alpha' | 'beta' | 'gamma' | null;
+  bundleIdExtension: BundleIdExtension;
   paths: string[];
 }
 
