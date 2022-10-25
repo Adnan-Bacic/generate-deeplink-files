@@ -24,7 +24,7 @@ export interface Config {
   relation: Relation[];
   target: {
     namespace: Namespace;
-    // todo: re-use existing types instead of string;
+    // todo: re-use existing types instead of string?
     package_name: string;
     sha256_cert_fingerprints: Sha256CertFingerprints[]
   }

@@ -13,6 +13,7 @@ export interface IosUniversalLinksConfig {
 }
 
 export interface DetailsContent {
+  // todo: re-use existing types instead of string?
   appID: string;
   paths: string[];
 }
