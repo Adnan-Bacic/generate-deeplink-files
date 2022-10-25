@@ -7,8 +7,7 @@
       "namespace": "android_app",
       "package_name": "com.example.appName",
       "sha256_cert_fingerprints": [
-        "string1",
-        "string2"
+        "stringCertificate"
       ]
     }
   },
@@ -20,8 +19,7 @@
       "namespace": "android_app",
       "package_name": "com.example.appName.alpha",
       "sha256_cert_fingerprints": [
-        "string1",
-        "string2"
+        "stringCertificate"
       ]
     }
   },
@@ -33,8 +31,7 @@
       "namespace": "android_app",
       "package_name": "com.example.appName.beta",
       "sha256_cert_fingerprints": [
-        "string1",
-        "string2"
+        "stringCertificate"
       ]
     }
   },
@@ -46,18 +43,8 @@
       "namespace": "android_app",
       "package_name": "com.example.appName.gamma",
       "sha256_cert_fingerprints": [
-        "string1",
-        "string2"
+        "stringCertificate"
       ]
-    }
-  },
-  {
-    "relation": [
-      "delegate_permission/common.get_login_creds"
-    ],
-    "target": {
-      "namespace": "web",
-      "site": "http://example.com/"
     }
   }
 ]

@@ -1,25 +1,24 @@
 import fs from 'fs';
 import { outputFolder } from '../constants/files';
+import { AndroidAppLinksConfig, Config, FileNameAndroid } from './types';
 
 // file
-const fileNameAndroid = 'assetlinks.json';
+const fileNameAndroid: FileNameAndroid = 'assetlinks.json';
 
-// android app package name
-const packageName = 'com.example.appName';
-
-// test dataAndroid
-const appDataAndroid = [
+// config
+const androidAppLinkConfig: AndroidAppLinksConfig[] = [
   {
     relation: [
       'delegate_permission/common.handle_all_urls',
     ],
     target: {
       namespace: 'android_app',
-      package_name: packageName,
+      package_name: 'com.example.appName',
       sha256_cert_fingerprints: [
-        'string1', 'string2',
+        'stringCertificate',
       ],
     },
+    packageNameExtension: null,
   },
   {
     relation: [
@@ -27,11 +26,12 @@ const appDataAndroid = [
     ],
     target: {
       namespace: 'android_app',
-      package_name: `${packageName}.alpha`,
+      package_name: 'com.example.appName',
       sha256_cert_fingerprints: [
-        'string1', 'string2',
+        'stringCertificate',
       ],
     },
+    packageNameExtension: 'alpha',
   },
   {
     relation: [
@@ -39,11 +39,12 @@ const appDataAndroid = [
     ],
     target: {
       namespace: 'android_app',
-      package_name: `${packageName}.beta`,
+      package_name: 'com.example.appName',
       sha256_cert_fingerprints: [
-        'string1', 'string2',
+        'stringCertificate',
       ],
     },
+    packageNameExtension: 'beta',
   },
   {
     relation: [
@@ -51,22 +52,36 @@ const appDataAndroid = [
     ],
     target: {
       namespace: 'android_app',
-      package_name: `${packageName}.gamma`,
+      package_name: 'com.example.appName',
       sha256_cert_fingerprints: [
-        'string1', 'string2',
+        'stringCertificate',
       ],
     },
-  },
-  {
-    relation: [
-      'delegate_permission/common.get_login_creds',
-    ],
-    target: {
-      namespace: 'web',
-      site: 'http://example.com/',
-    },
+    packageNameExtension: 'gamma',
   },
 ];
+
+// setup config correctly
+const appDataAndroid: Config[] = androidAppLinkConfig.map((item) => {
+  let concatenatedPackageName = `${item.target.package_name}`;
+
+  // prod app doesnt have an bundleIdExtension, so its null
+  if (item.packageNameExtension !== null) {
+    // add bundleIdExtension to non-prod versions
+    concatenatedPackageName = `${concatenatedPackageName}.${item.packageNameExtension}`;
+  }
+
+  const result = {
+    relation: item.relation,
+    target: {
+      namespace: item.target.namespace,
+      package_name: concatenatedPackageName,
+      sha256_cert_fingerprints: item.target.sha256_cert_fingerprints,
+    },
+  };
+
+  return result;
+});
 
 const dataAndroid = JSON.stringify(appDataAndroid, null, 2);
 

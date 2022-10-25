@@ -21,25 +21,25 @@ const appDataIos = [
     {
         appIdPrefix: appIdPrefixProd,
         bundleID: baseBundleID,
-        bundleIDExtension: null,
+        bundleIdExtension: null,
         paths: pathsData,
     },
     {
         appIdPrefix: appIdPrefixTeamID,
         bundleID: baseBundleID,
-        bundleIDExtension: 'alpha',
+        bundleIdExtension: 'alpha',
         paths: pathsData,
     },
     {
         appIdPrefix: appIdPrefixTeamID,
         bundleID: baseBundleID,
-        bundleIDExtension: 'beta',
+        bundleIdExtension: 'beta',
         paths: pathsData,
     },
     {
         appIdPrefix: appIdPrefixTeamID,
         bundleID: baseBundleID,
-        bundleIDExtension: 'gamma',
+        bundleIdExtension: 'gamma',
         paths: pathsData,
     },
 ];
@@ -47,9 +47,9 @@ const appDataIos = [
 const detailsContent = appDataIos.map((item) => {
     let concatenatedAppID = `${item.appIdPrefix}.${item.bundleID}`;
     // prod app doesnt have an bundleIDExtension
-    if (item.bundleIDExtension !== null) {
+    if (item.bundleIdExtension !== null) {
         // add bundleIDExtension to non-prod versions
-        concatenatedAppID = `${concatenatedAppID}.${item.bundleIDExtension}`;
+        concatenatedAppID = `${concatenatedAppID}.${item.bundleIdExtension}`;
     }
     const result = {
         appID: concatenatedAppID,
@@ -63,5 +63,9 @@ const content = {
         details: detailsContent,
     },
 };
+/*
+must stringify the data
+also passing parameters for formatting
+*/
 const dataIos = JSON.stringify(content, null, 2);
 fs_1.default.writeFileSync(`${files_1.outputFolder}/${fileNameIos}`, dataIos);
