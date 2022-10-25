@@ -1,1 +1,3 @@
-export const outputFolder = 'files';
+type OutputFolder = 'files';
+
+export const outputFolder: OutputFolder = 'files';
