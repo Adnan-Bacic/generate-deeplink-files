@@ -5,46 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const files_1 = require("../constants/files");
-// file
-const fileNameIos = 'apple-app-site-association';
-// ios app bundle id
-const baseBundleID = 'com.example.appName';
-// prefix
-const appIdPrefixProd = 'prefix1';
-const appIdPrefixTeamID = 'prefix2';
-// example paths
-const pathsData = [
-    'path1', 'path2', 'path3', 'path4',
-];
-// test dataIos
-const appDataIos = [
-    {
-        appIdPrefix: appIdPrefixProd,
-        bundleID: baseBundleID,
-        bundleIdExtension: null,
-        paths: pathsData,
-    },
-    {
-        appIdPrefix: appIdPrefixTeamID,
-        bundleID: baseBundleID,
-        bundleIdExtension: 'alpha',
-        paths: pathsData,
-    },
-    {
-        appIdPrefix: appIdPrefixTeamID,
-        bundleID: baseBundleID,
-        bundleIdExtension: 'beta',
-        paths: pathsData,
-    },
-    {
-        appIdPrefix: appIdPrefixTeamID,
-        bundleID: baseBundleID,
-        bundleIdExtension: 'gamma',
-        paths: pathsData,
-    },
-];
+const data_1 = require("./data");
 // setup dataIos correctly
-const detailsContent = appDataIos.map((item) => {
+const detailsContent = data_1.iosUniversalLinksConfig.map((item) => {
     let concatenatedAppID = `${item.appIdPrefix}.${item.bundleID}`;
     // prod app doesnt have an bundleIDExtension
     if (item.bundleIdExtension !== null) {
@@ -68,4 +31,5 @@ must stringify the data
 also passing parameters for formatting
 */
 const dataIos = JSON.stringify(content, null, 2);
-fs_1.default.writeFileSync(`${files_1.outputFolder}/${fileNameIos}`, dataIos);
+// create apple association file
+fs_1.default.writeFileSync(`${files_1.outputFolder}/${data_1.fileNameIos}`, dataIos);

@@ -5,65 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const files_1 = require("../constants/files");
-// file
-const fileNameAndroid = 'assetlinks.json';
-// config
-const androidAppLinkConfig = [
-    {
-        relation: [
-            'delegate_permission/common.handle_all_urls',
-        ],
-        target: {
-            namespace: 'android_app',
-            package_name: 'com.example.appName',
-            sha256_cert_fingerprints: [
-                'stringCertificate',
-            ],
-        },
-        packageNameExtension: null,
-    },
-    {
-        relation: [
-            'delegate_permission/common.handle_all_urls',
-        ],
-        target: {
-            namespace: 'android_app',
-            package_name: 'com.example.appName',
-            sha256_cert_fingerprints: [
-                'stringCertificate',
-            ],
-        },
-        packageNameExtension: 'alpha',
-    },
-    {
-        relation: [
-            'delegate_permission/common.handle_all_urls',
-        ],
-        target: {
-            namespace: 'android_app',
-            package_name: 'com.example.appName',
-            sha256_cert_fingerprints: [
-                'stringCertificate',
-            ],
-        },
-        packageNameExtension: 'beta',
-    },
-    {
-        relation: [
-            'delegate_permission/common.handle_all_urls',
-        ],
-        target: {
-            namespace: 'android_app',
-            package_name: 'com.example.appName',
-            sha256_cert_fingerprints: [
-                'stringCertificate',
-            ],
-        },
-        packageNameExtension: 'gamma',
-    },
-];
+const data_1 = require("./data");
 // setup config correctly
-const appDataAndroid = androidAppLinkConfig.map((item) => {
+const appDataAndroid = data_1.androidAppLinkConfig.map((item) => {
     let concatenatedPackageName = `${item.target.package_name}`;
     // prod app doesnt have an bundleIdExtension, so its null
     if (item.packageNameExtension !== null) {
@@ -80,5 +24,10 @@ const appDataAndroid = androidAppLinkConfig.map((item) => {
     };
     return result;
 });
+/*
+must stringify the data
+also passing parameters for formatting
+*/
 const dataAndroid = JSON.stringify(appDataAndroid, null, 2);
-fs_1.default.writeFileSync(`${files_1.outputFolder}/${fileNameAndroid}`, dataAndroid);
+// create digital asset links json file
+fs_1.default.writeFileSync(`${files_1.outputFolder}/${data_1.fileNameAndroid}`, dataAndroid);

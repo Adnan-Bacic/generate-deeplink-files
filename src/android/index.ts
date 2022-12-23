@@ -1,65 +1,7 @@
 import fs from 'fs';
 import { outputFolder } from '../constants/files';
-import { AndroidAppLinksConfig, AssetLinksConfig, FileNameAndroid } from './types';
-
-// file
-const fileNameAndroid: FileNameAndroid = 'assetlinks.json';
-
-// config
-const androidAppLinkConfig: AndroidAppLinksConfig[] = [
-  {
-    relation: [
-      'delegate_permission/common.handle_all_urls',
-    ],
-    target: {
-      namespace: 'android_app',
-      package_name: 'com.example.appName',
-      sha256_cert_fingerprints: [
-        'stringCertificate',
-      ],
-    },
-    packageNameExtension: null,
-  },
-  {
-    relation: [
-      'delegate_permission/common.handle_all_urls',
-    ],
-    target: {
-      namespace: 'android_app',
-      package_name: 'com.example.appName',
-      sha256_cert_fingerprints: [
-        'stringCertificate',
-      ],
-    },
-    packageNameExtension: 'alpha',
-  },
-  {
-    relation: [
-      'delegate_permission/common.handle_all_urls',
-    ],
-    target: {
-      namespace: 'android_app',
-      package_name: 'com.example.appName',
-      sha256_cert_fingerprints: [
-        'stringCertificate',
-      ],
-    },
-    packageNameExtension: 'beta',
-  },
-  {
-    relation: [
-      'delegate_permission/common.handle_all_urls',
-    ],
-    target: {
-      namespace: 'android_app',
-      package_name: 'com.example.appName',
-      sha256_cert_fingerprints: [
-        'stringCertificate',
-      ],
-    },
-    packageNameExtension: 'gamma',
-  },
-];
+import { androidAppLinkConfig, fileNameAndroid } from './data';
+import { AssetLinksConfig } from './types';
 
 // setup config correctly
 const appDataAndroid: AssetLinksConfig[] = androidAppLinkConfig.map((item) => {
@@ -83,6 +25,11 @@ const appDataAndroid: AssetLinksConfig[] = androidAppLinkConfig.map((item) => {
   return result;
 });
 
+/*
+must stringify the data
+also passing parameters for formatting
+*/
 const dataAndroid = JSON.stringify(appDataAndroid, null, 2);
 
+// create digital asset links json file
 fs.writeFileSync(`${outputFolder}/${fileNameAndroid}`, dataAndroid);

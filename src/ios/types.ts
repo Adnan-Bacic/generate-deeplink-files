@@ -1,21 +1,22 @@
+import { AppPackageNameExtension } from '../types';
+
 export type FileNameIos = 'apple-app-site-association';
 
 export type AppBundleID = 'com.example.appName';
 
-type BundleIdExtension = 'alpha' | 'beta' | 'gamma' | null;
-
 export type AppIdPrefixProd = 'prefix1';
 export type AppIdPrefixTeamID = 'prefix2';
 
+type AppIdPrefix = AppIdPrefixProd | AppIdPrefixTeamID;
+
 export interface IosUniversalLinksConfig {
-  appIdPrefix: AppIdPrefixProd | AppIdPrefixTeamID;
+  appIdPrefix: AppIdPrefix;
   bundleID: AppBundleID;
-  bundleIdExtension: BundleIdExtension;
+  bundleIdExtension: AppPackageNameExtension;
   paths: string[];
 }
 
 export interface DetailsContent {
-  // todo: re-use existing types instead of string?
   appID: string;
   paths: string[];
 }
